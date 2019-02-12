@@ -8,6 +8,7 @@ defmodule Huffman do
         'this is something that we should encode'
     end
 
+    # hardcoded tree to find out what's wrong with the one we made
     def loltree() do
         [
             {106, [1,0,1,1,0,0,0,0]},
@@ -40,7 +41,7 @@ defmodule Huffman do
         ]
     end
 
-    # assign variables
+    # assign variables and do things
     def test do
         sample = sample()                   # assign sample
         tree = tree( sample )               # generate tree
@@ -98,8 +99,9 @@ defmodule Huffman do
         tuple_maker( frequencylist )
     end
 
+    ###################################################
     # TODO THIS IS BROKEN SOMEHOW????
-
+    #
     def tuple_maker( [] ) do
         []
     end
@@ -152,7 +154,7 @@ defmodule Huffman do
     end
     def encode( [] ,_ ,_ ), do: []
     def encode( _, [], _virgintable ) do
-        IO.puts("REEEEEEEEEEEEEEEEE")
+        IO.puts("Something broke")
     end
     def encode( [char | rest], [ { char, list } | _t], virgintable ) do
         list ++ encode( rest, virgintable )
